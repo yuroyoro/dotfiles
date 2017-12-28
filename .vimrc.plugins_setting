@@ -365,6 +365,43 @@ endfunction
 nnoremap <expr><silent> <C-c> quickrun#is_running() ?  quickrun#sweep_sessions() : "\<C-c>"
 
 autocmd BufReadPost *_spec.rb call RSpecQuickrun()
+
+"------------------------------------
+" vim-ref
+"------------------------------------
+"
+"Vim で英語を書く時に便利なプラグインいくつか - akishin999の日記
+"http://d.hatena.ne.jp/akishin999/20131024/1382569289
+"
+" vim-ref のバッファを q で閉じられるようにする
+autocmd FileType ref-* nnoremap <buffer> <silent> q :<C-u>close<CR>
+
+" カーソル下の単語を英辞書る
+nnoremap ej :Ref webdict ej <C-r><C-w><Enter>
+
+" 辞書定義
+let g:ref_source_webdict_sites = {
+\   'je': {
+\     'url': 'http://dictionary.infoseek.ne.jp/jeword/%s',
+\   },
+\   'ej': {
+\     'url': 'http://ejje.weblio.jp/content/%s'
+\   },
+\ }
+
+" デフォルトサイト
+let g:ref_source_webdict_sites.default = 'ej'
+
+" 出力に対するフィルタ
+" 最初の数行を削除
+function! g:ref_source_webdict_sites.je.filter(output)
+  return join(split(a:output, "\n")[15 :], "\n")
+endfunction
+
+function! g:ref_source_webdict_sites.ej.filter(output)
+  return join(split(a:output, "\n")[15 :], "\n")
+endfunction
+
 "------------------------------------
 " Pydiction
 "------------------------------------
@@ -446,12 +483,6 @@ function! SetUpRailsSetting()
 endfunction
 autocmd User Rails call SetUpRailsSetting()
 
-
-"------------------------------------
-" mattn/vim-metarw-redmine
-"------------------------------------
-let g:metarw_redmine_server = 'http://redmine.dev.scaleout.jp'
-let g:metarw_redmine_apikey = '2ed945f405865ec799ff91b7bb364215f932c51c'
 
 "------------------------------------
 " GoLang gocde

@@ -66,7 +66,7 @@ call neobundle#begin(expand('~/.vim/bundle'))
   NeoBundle "thinca/vim-textobj-function-javascript"
 
   " vim-textobj-lastpat : 最後に検索されたパターンをtext-objectに
-  NeoBundle 'kana/vim-textobj-lastpat.git'
+  " NeoBundle 'kana/vim-textobj-lastpat.git'
 
   " vim-textobj-indent : インデントされたものをtext-objectに
   NeoBundle 'kana/vim-textobj-indent.git'
@@ -76,10 +76,10 @@ call neobundle#begin(expand('~/.vim/bundle'))
 
   " vim-textobj-fold : 折りたたまれたアレをtext-objectに
   " NeoBundle 'kana/vim-textobj-fold.git'
-  NeoBundle 'textobj-rubyblock'
+  " NeoBundle 'textobj-rubyblock'
 
   " vim-textobj-entire : buffer全体をtext-objectに
-  NeoBundle 'textobj-entire'
+  " NeoBundle 'textobj-entire'
 
   " 「foo」 or 【bar】などをtext-objectに
   NeoBundle 'textobj-jabraces'
@@ -312,9 +312,6 @@ call neobundle#begin(expand('~/.vim/bundle'))
 
   " ステータスラインをカッコよくする
   NeoBundle 'Lokaltog/vim-powerline'
-
-  " Redmine on Vim
-  NeoBundle 'mattn/vim-metarw-redmine'
 
   " A framework to read/write fake:path
   NeoBundle 'kana/vim-metarw'
