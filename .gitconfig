@@ -8,6 +8,9 @@
   branch = auto
   interactive = auto
   grep = auto
+
+; [interactive]
+;       diffFilter = delta --color-only
 [push]
 	default = current
 [core]
@@ -15,7 +18,10 @@
   autocrlf = input                 # CRLFを自動変換
   editor = vim
   quotepath = false
-[merge] tool = vimdiff ff = false
+
+  ; pager = delta --plus-color="#81CBA9" --minus-color="#340001" --theme='Monokai Extended'
+[merge]
+  tool = vimdiff ff = false
 [diff]
   tool=vimdiff
   compactionHeuristic = true
@@ -42,6 +48,7 @@
   pu  = push -u origin      # push origin and set upstream
   # push current branch to origin with --upstream
   puc = "!f() { git push origin -u `git symbolic-ref --short HEAD` ;}; f"
+  mup = git fetch origin master:master
   # rebase
   rbm = rebase --merge master       # masterへのrebaseはよく使うのでalias
   rbd = rebase --merge develop
@@ -74,7 +81,7 @@
   bn  = branch --no-merged  # mergeしてないbranchを表示
   bo  = branch -r           # remote branchを表示
   # log関連
-  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; nvim `f`"
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vi `f`"
   wc  = whatchanged         # logに変更されたファイルも一緒に出す
   ls  = log --stat          # logに変更されたファイルも一緒に出す
   lp  = log -p              # diffも一緒に出す
@@ -123,14 +130,14 @@
   d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
   # edit関連
   # modified or untrackedなファイルを編集する
-  edit = "!f() { git status -s | cut -b 4- | grep -v '\\/$' | uniq ; }; nvim `f`"
+  edit = "!f() { git status -s | cut -b 4- | grep -v '\\/$' | uniq ; }; vi `f`"
   # mergeの際にconflictが起きたファイルを編集
-  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; nvim `f`"
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vi `f`"
   # mergeの際にconflictが起きたファイルをadd
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
   delete-unmerged =  "!f() { git ls-files --deleted | cut -f2 | sort -u ; }; git rm `f`"
   # 指定したコミットで変更されたファイルを編集する
-  modified = "!f() { git diff $1..$1\\^ --name-only | xargs sh -c 'nvim "$@" < /dev/tty' - ;}; f"
+  modified = "!f() { git diff $1..$1\\^ --name-only | xargs sh -c 'vi "$@" < /dev/tty' - ;}; f"
   # cherr -vで出てくる;commitから#1234なチケット番号を切り出す
   cherry-ticket-numbers = "!f() { git cherry -v "$@" | cut -b 44- | awk 'match($0, /#[0-9]+/) {print substr($0, RSTART, RLENGTH)}' | sort -u ;}; f"
   # cherr -vに含まれるチケットを列挙する
@@ -153,6 +160,7 @@
 
   chpk = cherry-pick # チンピク
   iss = issue # my extended command
+  rebase-i="!f() { git rebase -i $(git merge-base $1 HEAD) ;}; f"
 
   # git-風呂関連
   ff  = flow feature
