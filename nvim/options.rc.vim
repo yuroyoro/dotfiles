@@ -8,7 +8,7 @@ set hidden                    " buffer becomes hidden when it is abandoned
 set formatoptions=jlmB        " formatting behaivior. disable auto comment insertion etc. see fo-table
 set vb t_vb=                  " disable beep
 set whichwrap=b,s,h,l,<,>,[,] " Allow to the cursor to move over the next/prev line
-set nomodeline                " disable modeline
+" set nomodeline                " disable modeline
 set notitle                   " 'Thanks for Flying Vim'
 set noundofile                " avoid creating a undo file
 set clipboard=unnamed         " put the yanked string into unnamed buffer(as system clipboard)
@@ -32,6 +32,7 @@ set backupdir=$VIMTMP
 " Indentation
 "-------------------------------------------------------------------------------
 
+set autoindent
 set smartindent  " smart autoindenting when starting a new line
 set cindent      " enables automatic C program indenting
 set tabstop=2 shiftwidth=2 softtabstop=0

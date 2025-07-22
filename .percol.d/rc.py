@@ -1,6 +1,6 @@
 
 # prompt
-percol.view.PROMPT  = ur"<bold><red>ʕ(#  ﾟ皿ﾟ )/</red></bold> %q"
+percol.view.PROMPT  = r"<bold><red>ʕ(#  ﾟ皿ﾟ )/</red></bold> %q"
 
 # Emacs like
 percol.import_keymap({

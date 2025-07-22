@@ -87,7 +87,7 @@ if = '!has("nvim")'
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add = 'source ~/.config/nvim/plugins/deoplete.rc.vim'
-rev = "4.1"
+rev = "6.1"
 
 # [[plugins]]
 # repo = 'cohama/lexima.vim'
@@ -145,6 +145,6 @@ hook_post_source = 'source ~/.config/nvim/plugins/ale.rc.vim'
 repo = 'thinca/vim-ref'
 
 # automatic gtags generation
-[[plugins]]
-repo = 'jsfaint/gen_tags.vim'
-hook_add = 'source ~/.config/nvim/plugins/gen_tags.rc.vim'
+# [[plugins]]
+# repo = 'jsfaint/gen_tags.vim'
+# hook_add = 'source ~/.config/nvim/plugins/gen_tags.rc.vim'

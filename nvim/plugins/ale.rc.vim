@@ -26,11 +26,17 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format      = '[%linter%] %s [%severity%]'
 let g:ale_loclist_msg_format   = '[%linter%] %s [%severity%]'
 
+let g:ale_linters.ruby  = ['ruby', 'rubocop']
+
 let g:ale_fix_on_save = 1
-let g:ale_linters.go  = ['go build', 'gofmt', 'golint', 'golangci-lint']
+let g:ale_linters.go  = ['go build', 'gofmt', 'golint', 'govet']
 let g:ale_fixers.go   = ['gofmt', 'goimports']
 
 let g:ale_go_golangci_lint_package = 1
 let g:ale_go_golangci_lint_options = "--enable-all --disable gochecknoglobals"
 let g:ale_go_gofmt_options = "-s"
 
+let g:ale_linters.javascript  = ['eslint']
+let g:ale_fixers.javascript   = ['eslint']
+let g:ale_linters.typescript  = ['eslint', 'tsserver']
+let g:ale_fixers.typescript   = ['eslint']

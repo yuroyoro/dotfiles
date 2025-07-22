@@ -28,6 +28,10 @@ repo = '5t111111/denite-rails'
 hook_post_source = 'source ~/.config/nvim/plugins/denite-rails.rc.vim'
 on_ft = 'ruby'
 
+[[plugins]]
+repo = 'slim-template/vim-slim'
+on_ft = 'slim'
+
 # crystal
 [[plugins]]
 repo = 'rhysd/vim-crystal'
@@ -38,7 +42,11 @@ on_ft = 'crystal'
 repo = 'leafgarland/typescript-vim'
 on_ft = 'typescript'
 
-
 [[plugins]]
 repo = 'Quramy/tsuquyomi'
 on_ft = 'typescript'
+
+[[plugins]]
+repo = 'jparise/vim-graphql'
+on_ft = 'graphql'
+
