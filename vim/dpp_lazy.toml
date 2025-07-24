@@ -1,0 +1,60 @@
+
+[[plugins]]
+depends = ['vim-airline']
+repo = 'jonathanfilip/vim-lucius'
+on_event = 'VimEnter'
+hook_post_source = 'source ~/dotfiles/vim/plugins/lucius.rc.vim'
+
+# ==========================================================
+# programming
+# ==========================================================
+
+# golang
+# [[plugins]]
+# repo = 'zchee/deoplete-go'
+# depends = ['deoplete.nvim']
+# build = 'make'
+# hook_post_source = 'source ~/dotfiles/vim/plugins/deoplete-go.rc.vim'
+# on_ft = 'go'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+hook_source = 'source ~/dotfiles/vim/plugins/vim-go.rc.vim'
+hook_post_source = 'source ~/dotfiles/vim/plugins/vim-go.post.rc.vim'
+
+
+# # ruby
+# [[plugins]]
+# repo = 'tpope/vim-rails'
+# on_ft = 'ruby'
+
+# [[plugins]]
+# repo = '5t111111/denite-rails'
+# # repo = 'yuroyoro/denite-rails'
+# # rev = 'patch-1'
+# hook_post_source = 'source ~/dotfiles/vim/plugins/denite-rails.rc.vim'
+# on_ft = 'ruby'
+
+# [[plugins]]
+# repo = 'slim-template/vim-slim'
+# on_ft = 'slim'
+
+# # crystal
+# [[plugins]]
+# repo = 'rhysd/vim-crystal'
+# on_ft = 'crystal'
+
+# # TypeScript
+# [[plugins]]
+# repo = 'leafgarland/typescript-vim'
+# on_ft = 'typescript'
+
+# [[plugins]]
+# repo = 'Quramy/tsuquyomi'
+# on_ft = 'typescript'
+
+[[plugins]]
+repo = 'jparise/vim-graphql'
+on_ft = 'graphql'
+

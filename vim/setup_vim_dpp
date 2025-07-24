@@ -1,0 +1,23 @@
+#!/bin/bash
+
+DPP_BASE=$HOME/.cache/dpp
+DPP_REPO_DIR=$DPP_BASE/repos/github.com
+
+# create plugin install directories
+DPP_SHUGO_DIR=$DPP_REPO_DIR/Shugo
+DPP_VIM_DENO_DIR=$DPP_REPO_DIR/vim-denops
+
+mkdir -p DPP_SHUGO_DIR
+mkdir -p DPP_VIM_DENO_DIR
+
+# Setup dpp.vim
+git clone https://github.com/Shougo/dpp.vim "$DPP_SHUGO_DIR/dpp.vim"
+
+# Setup dpp extenstoins
+git clone https://github.com/Shougo/dpp-ext-installer "$DPP_SHUGO_DIR/dpp-ext-installer"
+git clone https://github.com/Shougo/dpp-protocol-git  "$DPP_SHUGO_DIR/dpp-protocol-git"
+git clone https://github.com/Shougo/dpp-ext-lazy      "$DPP_SHUGO_DIR/dpp-ext-lazy"
+git clone https://github.com/Shougo/dpp-ext-toml      "$DPP_SHUGO_DIR/dpp-ext-toml"
+
+# Setup vim denos
+git clone https://github.com/vim-denops/denops.vim "$DPP_VIM_DENO_DIR/denops.vim"
